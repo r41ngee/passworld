@@ -13,10 +13,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             println!("{}", util::generate_password(args.length))
         },
         cli::Action::Init => {
-            let dir_created = storage::ensure_dir_created()?;
-            if !dir_created {
-                storage::create_dir()?;
-            }
+            storage::create_dir()?;
+            storage::create_db()?;
         }
     }
 
