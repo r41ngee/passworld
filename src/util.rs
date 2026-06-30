@@ -14,9 +14,11 @@ const PASSWORD_CHARS: [char; 94] = [
     '{', '|', '}', '~',
 ];
 
+
+const DEFAULT_PASSWORD_SIZE: Range<usize> = 16..25;
+
 pub fn generate_password(length: Option<usize>) -> String {
-    const DEFAULT_SIZE: Range<usize> = 16..25;
-    let length = length.unwrap_or_else(|| rand::random_range(DEFAULT_SIZE));
+    let length = length.unwrap_or_else(|| rand::random_range(DEFAULT_PASSWORD_SIZE));
     gen_password(length)
 }
 
