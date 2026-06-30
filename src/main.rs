@@ -15,7 +15,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         cli::Action::Init => {
             let dir_created = storage::ensure_dir_created()?;
             if !dir_created {
-                storage::create_if_not_exists()?;
+                storage::create_dir()?;
             }
         }
     }

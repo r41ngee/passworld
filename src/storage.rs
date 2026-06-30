@@ -17,7 +17,7 @@ pub fn ensure_dir_created() -> Result<bool, Box<dyn std::error::Error>> {
     Ok(exists)
 }
 
-pub fn create_if_not_exists() -> Result<(), Box<dyn std::error::Error>> {
+pub fn create_dir() -> Result<(), Box<dyn std::error::Error>> {
     let path = get_data_dir()?;
     let created = ensure_dir_created()?;
     if !created {
