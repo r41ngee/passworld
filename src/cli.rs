@@ -13,4 +13,5 @@ pub struct Cli {
 #[derive(Subcommand)]
 pub enum Action {
     Generate,
+    Init,
 }
