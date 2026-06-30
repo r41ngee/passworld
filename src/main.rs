@@ -1,3 +1,12 @@
+mod cli;
+
+use clap::Parser;
+
 fn main() {
-    println!("Hello, world!");
+    let args = cli::Cli::parse();
+
+    #[allow(clippy::match_single_binding)]
+    match args.action {
+        _ => println!("Nothing ever happens")
+    }
 }
