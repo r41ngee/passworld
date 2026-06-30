@@ -1,4 +1,5 @@
 mod cli;
+mod util;
 
 use clap::Parser;
 
@@ -7,6 +8,6 @@ fn main() {
 
     #[allow(clippy::match_single_binding)]
     match args.action {
-        _ => println!("Nothing ever happens")
+        _ => println!("Nothing ever happens"),
     }
 }
