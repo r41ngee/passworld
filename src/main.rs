@@ -8,6 +8,8 @@ fn main() {
 
     #[allow(clippy::match_single_binding)]
     match args.action {
-        _ => println!("Nothing ever happens"),
+        cli::Action::Generate => {
+            println!("{}", util::generate_password(args.length))
+        },
     }
 }

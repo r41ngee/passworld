@@ -14,14 +14,10 @@ const PASSWORD_CHARS: [char; 94] = [
     '{', '|', '}', '~',
 ];
 
-pub fn generate_password(length_range: Option<Range<usize>>) -> String {
-    const DEFAULT_SIZE: usize = 16;
+pub fn generate_password(length: Option<usize>) -> String {
+    const DEFAULT_SIZE: Range<usize> = 16..25;
 
-    let length = if let Some(range) = length_range {
-        rand::random_range(range)
-    } else {
-        DEFAULT_SIZE
-    };
+    let length = length.unwrap_or_else(|| rand::random_range(DEFAULT_SIZE));
 
     let mut result = String::new();
     for _ in 0..length {
