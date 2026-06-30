@@ -16,9 +16,11 @@ const PASSWORD_CHARS: [char; 94] = [
 
 pub fn generate_password(length: Option<usize>) -> String {
     const DEFAULT_SIZE: Range<usize> = 16..25;
-
     let length = length.unwrap_or_else(|| rand::random_range(DEFAULT_SIZE));
+    gen_password(length)
+}
 
+fn gen_password(length: usize) -> String {
     let mut result = String::new();
     for _ in 0..length {
         result.push(
